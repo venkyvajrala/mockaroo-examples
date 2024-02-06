@@ -1,0 +1,48 @@
+{
+	"num_rows": 1,
+	"file_format": "json",
+	"name": "users",
+	"array": true,
+	"columns": [
+		{
+			"name": "result.__key",
+			"null_percentage": 0,
+			"type": "Row Number",
+			"formula": null
+		},
+		{
+			"name": "result.id",
+			"null_percentage": 0,
+			"type": "Formula",
+			"value": "(request_params[\"page\"].to_i*10)+__key",
+			"formula": null
+		},
+		{
+			"name": "result.name",
+			"null_percentage": 0,
+			"type": "Full Name",
+			"formula": null
+		},
+		{
+			"name": "result.email",
+			"null_percentage": 0,
+			"type": "Email Address",
+			"formula": null
+		},
+		{
+			"name": "result",
+			"null_percentage": 0,
+			"type": "JSON Array",
+			"minItems": 10,
+			"maxItems": 10,
+			"formula": null
+		},
+		{
+			"name": "hasNextPage",
+			"null_percentage": 0,
+			"type": "Formula",
+			"value": "if request_params[\"page\"].to_i >= 4 then false else true end",
+			"formula": null
+		}
+	]
+}
